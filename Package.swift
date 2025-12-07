@@ -13,8 +13,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../smith-foundation/SmithProgress"),
-        .package(path: "../smith-foundation/SmithOutputFormatter"),
+        .package(path: "../smith-foundation"),
         .package(path: "../smith-diagnostics"),
         .package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMajor(from: "1.5.0"))
     ],
@@ -22,8 +21,8 @@ let package = Package(
         .executableTarget(
             name: "smith-parser",
             dependencies: [
-                .product(name: "SmithProgress", package: "SmithProgress"),
-                .product(name: "SmithOutputFormatter", package: "SmithOutputFormatter"),
+                .product(name: "SmithProgress", package: "smith-foundation"),
+                .product(name: "SmithOutputFormatter", package: "smith-foundation"),
                 .product(name: "SBDiagnostics", package: "smith-diagnostics"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
             ],
